@@ -15,15 +15,15 @@ class ControllerHome{
     FocusNode? beforeFocus,
     FocusNode? nextFocus,
     TextEditingController controller,
-    TextEditingController beforeController,
-    TextEditingController nextController){
+    TextEditingController? beforeController,
+    TextEditingController? nextController){
       
     if(value.isEmpty && beforeFocus != null){
-      beforeController.clear();
+      beforeController!.clear();
       beforeFocus.requestFocus();
     }else if(value.isNotEmpty && nextFocus != null){
       controller.text = value;
-      nextController.clear();
+      nextController!.clear();
       nextFocus.requestFocus();
     }else if(nextFocus == null && value.isNotEmpty){
       controller.text = value;

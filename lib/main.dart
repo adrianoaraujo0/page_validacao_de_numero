@@ -1,4 +1,4 @@
-import 'package:desafio/controller.dart';
+import 'controller.dart';
 import 'package:flutter/material.dart';
 void main() {
   runApp( MyApp());
@@ -114,19 +114,8 @@ class HomePage extends StatelessWidget {
         keyboardType: TextInputType.number,
         onTap: () => controller.clear(),
         onChanged: (value) {
-          controllerHome.validationOnChanged(value, focusNode, beforeFocus, nextFocus, controller, beforeController!, nextController!);
-          // if(value.isEmpty && beforeFocus != null){
-          //   beforeController!.clear();
-          //   beforeFocus.requestFocus();
-          // }else if(value.isNotEmpty && nextFocus != null){
-          //   controller.text = value;
-          //   nextController!.clear();
-          //   nextFocus.requestFocus();
-          // }else if(nextFocus == null && value.isNotEmpty){
-          //   controller.text = value;
-          //   focusNode.unfocus();
-          // }
-       },
+          controllerHome.validationOnChanged(value, focusNode, beforeFocus, nextFocus, controller, beforeController, nextController);
+        },
        autofocus: autoFocus,
        focusNode: focusNode,
       ),
