@@ -22,11 +22,37 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.purple),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 19, 113, 22), elevation: 0,
+        centerTitle: true,
+        title: const Text(
+          "Verificacao em duas etapas",
+          style: TextStyle(
+            color: Colors.white
+          ),
+        ),
+        actions: const [
+         Padding(
+           padding: EdgeInsets.all(8.0),
+           child: Icon(Icons.more_vert, color: Colors.grey, size: 30,),
+         )
+        ],
+      ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            Container(
+              padding: const EdgeInsets.all(20),
+              child: const Text(
+                "Digite um código de acesso de 6 digitos \n"
+                "que será pedido quando você registrar \n" 
+                "seu telefone no WhatsApp:",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -37,7 +63,12 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton:  ElevatedButton(onPressed: (() {}), child: const Text("AVANÇAR")),
+      floatingActionButton: 
+      ElevatedButton(
+        onPressed: (() {}), 
+        style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+        child: const Text("AVANÇAR"),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
@@ -105,10 +136,17 @@ class HomePage extends StatelessWidget {
       
     ControllerHome controllerHome = ControllerHome();
       
-      return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 5),
-      width: 50,
+      return SizedBox(
+      // margin: const EdgeInsets.symmetric(horizontal: 5),
+      width: 40,
       child: TextField(
+        decoration: const InputDecoration(
+          hintText: "*",
+          hintStyle: TextStyle(fontSize: 20, color: Colors.grey),
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.green, width: 2),
+          )
+        ),
         controller: controller,
         textAlign: TextAlign.center,
         keyboardType: TextInputType.number,
